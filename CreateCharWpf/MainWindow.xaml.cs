@@ -236,13 +236,23 @@ namespace CreateCharWpf
         {
             var i = MongoExample.Find($"{ChangeUnit.SelectedValue}");
             i.Experience += 5000;
-            if(exp.Value <= i.Experience)
+            exp.Value += 5000;
+            if(exp.Maximum < i.Experience)
             {
                 i.Level += 1;
-                i.Experience -= (int)exp.Value;
-                exp.Value = 0;
+                exp.Value -= exp.Maximum;
                 exp.Maximum += 3000;
             }
+            else if (exp.Maximum > i.Experience)
+            {
+                exp.Value += 5000;
+            }
+            else
+            {
+                i.Level += 1;
+                exp.Value = 0;
+            }
+                
         }
     }
 }
