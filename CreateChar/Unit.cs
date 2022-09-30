@@ -17,7 +17,7 @@ namespace CreateChar
         private int constitution;
         private int intelligence;
         private int experience;
-        private int level;
+        private int level = 1;
 
         [BsonIgnoreIfNull]
         public List<Item> Items { get; set; }
