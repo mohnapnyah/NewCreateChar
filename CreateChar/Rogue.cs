@@ -29,8 +29,8 @@ namespace CreateChar
         public static Field ConstitutionCharacteristic { get => constitutionCharacteristic; }
         public static Field IntelligenceCharacteristic { get => intelligenceCharacteristic; }
 
-        public Rogue(string name, int strength, int dexterity, int constitution, int intelligence) :
-            base(name, strength, dexterity, constitution, intelligence)
+        public Rogue(string name, int strength, int dexterity, int constitution, int intelligence, int level) :
+            base(name, strength, dexterity, constitution, intelligence, level)
         {
             Max = TakeUnitStats(strength, dexterity, constitution, intelligence);
         }

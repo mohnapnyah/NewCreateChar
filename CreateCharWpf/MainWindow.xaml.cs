@@ -94,7 +94,8 @@ namespace CreateCharWpf
                             (int)SliderStrength.Value,
                             (int)SliderDexterity.Value,
                             (int)SliderConstitution.Value,
-                            (int)SliderIntellingence.Value);
+                            (int)SliderIntellingence.Value,
+                            int.Parse(lvlBox.Text));
                 foreach (var i in Inventory.Children)
                 {
                     var j = i as CheckBox;
@@ -178,6 +179,9 @@ namespace CreateCharWpf
             SliderIntellingence.Value = i.Intelligence;
             SliderDexterity.Value = i.Dexterity;
             SliderConstitution.Value = i.Constitution;
+            lvlBox.Text = i.Level.ToString();
+            exp.Value = i.Experience;
+            exp.Maximum = i.Level * 3000;
 
             if (i.Items != null)
             {
@@ -236,28 +240,29 @@ namespace CreateCharWpf
         {
             var i = MongoExample.Find($"{ChangeUnit.SelectedValue}");
             i.Experience += 2000;
-            int freeEXP = 2000;
-            if (exp.Maximum < i.Experience)
+            MessageBox.Show(i.Experience.ToString(), exp.Maximum.ToString());
+            if (i.Experience > exp.Maximum)
             {
-                    i.Level += 1;
-                    lvlBox.Text = (i.Level + 1).ToString();
-                    freeEXP -= (int)exp.Maximum;
-                    exp.Maximum += 3000;
-                    exp.Value = 0;
-                    freeEXP = 0;
-                
-                
+                i.Level = i.Level + 1;
+                lvlBox.Text = i.Level.ToString();
+                exp.Value = i.Experience - exp.Maximum;
+                exp.Maximum = i.Level * 3000;
+                i.Experience = (int)exp.Value;
             }
-            else if (exp.Maximum > i.Experience)
+             if (i.Experience < exp.Maximum)
             {
                 exp.Value += 2000;
+                i.Experience = (int)exp.Value;
             }
-            else
+             if(i.Experience == exp.Maximum)
             {
-                i.Level += 1;
-                lvlBox.Text = (i.Level + 1).ToString();
+                i.Level = i.Level + 1;
+                exp.Maximum = i.Level* 3000;
+                lvlBox.Text = i.Level.ToString();
                 exp.Value = 0;
+                i.Experience = 0;
             }
+            MongoExample.ReplaceUnit($"{ChangeUnit.SelectedValue}", i);
         }
     }
 }

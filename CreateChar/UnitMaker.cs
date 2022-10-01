@@ -32,20 +32,20 @@ namespace CreateChar
             };
         }
 
-        static public Unit Make(UnitsClasses pieceCode, string name, int strength, int dexterity, int constitution, int intelligence)
+        static public Unit Make(UnitsClasses pieceCode, string name, int strength, int dexterity, int constitution, int intelligence, int level)
         {
             Unit unit = null;
 
             switch (pieceCode)
             {
                 case UnitsClasses.Rogue:
-                    unit = new Rogue(name, strength, dexterity, constitution, intelligence);
+                    unit = new Rogue(name, strength, dexterity, constitution, intelligence, level);
                     break;
                 case UnitsClasses.Warrior:
-                    unit = new Wizard(name, strength, dexterity, constitution, intelligence);
+                    unit = new Wizard(name, strength, dexterity, constitution, intelligence, level);
                     break;
                 case UnitsClasses.Wizard:
-                    unit = new Wizard(name, strength, dexterity, constitution, intelligence);
+                    unit = new Wizard(name, strength, dexterity, constitution, intelligence, level);
                     break;
 
                 default:
@@ -55,9 +55,9 @@ namespace CreateChar
             return unit;
         }
 
-        static public Unit Make(string unitClass, string name, int strength, int dexterity, int constitution, int intelligence)
+        static public Unit Make(string unitClass, string name, int strength, int dexterity, int constitution, int intelligence, int level)
         {
-            return Make(UnitClassCode[unitClass], name, strength, dexterity, constitution, intelligence);
+            return Make(UnitClassCode[unitClass], name, strength, dexterity, constitution, intelligence, level);
         }
 
 
@@ -134,7 +134,7 @@ namespace CreateChar
 
         static public Unit TransformUnit(string unitClass, Unit unit)
         {
-            return Make(unitClass, unit.Name, unit.Strength, unit.Dexterity, unit.Constitution, unit.Intelligence);
+            return Make(unitClass, unit.Name, unit.Strength, unit.Dexterity, unit.Constitution, unit.Intelligence, unit.Level);
         }
     }
 }

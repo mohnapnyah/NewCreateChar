@@ -27,16 +27,17 @@ namespace CreateChar
         public int Dexterity { get => dexterity; set => dexterity = value; }
         public int Constitution { get => constitution; set => constitution = value; }
         public int Intelligence { get => intelligence; set => intelligence = value; }
-        public int Experience { get; set; }
-        public int Level { get; set; }
+        public int Experience { get => experience; set => experience = value; }
+        public int Level { get => level; set => level = value; }
 
-        protected Unit(string name, int strength, int dexterity, int constitution, int intelligence)
+        protected Unit(string name, int strength, int dexterity, int constitution, int intelligence, int level)
         {
             Strength = strength;
             Dexterity = dexterity;
             Constitution = constitution;
             Intelligence = intelligence;
             Name = name;
+            Level = level;
             Items = new List<Item>();
         }
 
