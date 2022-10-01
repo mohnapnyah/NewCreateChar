@@ -235,24 +235,29 @@ namespace CreateCharWpf
         private void expUp_Click(object sender, RoutedEventArgs e)
         {
             var i = MongoExample.Find($"{ChangeUnit.SelectedValue}");
-            i.Experience += 5000;
-            exp.Value += 5000;
-            if(exp.Maximum < i.Experience)
+            i.Experience += 2000;
+            int freeEXP = 2000;
+            if (exp.Maximum < i.Experience)
             {
-                i.Level += 1;
-                exp.Value -= exp.Maximum;
-                exp.Maximum += 3000;
+                    i.Level += 1;
+                    lvlBox.Text = (i.Level + 1).ToString();
+                    freeEXP -= (int)exp.Maximum;
+                    exp.Maximum += 3000;
+                    exp.Value = 0;
+                    freeEXP = 0;
+                
+                
             }
             else if (exp.Maximum > i.Experience)
             {
-                exp.Value += 5000;
+                exp.Value += 2000;
             }
             else
             {
                 i.Level += 1;
+                lvlBox.Text = (i.Level + 1).ToString();
                 exp.Value = 0;
             }
-                
         }
     }
 }

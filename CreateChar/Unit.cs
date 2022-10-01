@@ -16,7 +16,7 @@ namespace CreateChar
         private int dexterity;
         private int constitution;
         private int intelligence;
-        private int experience;
+        private int experience = 0;
         private int level = 1;
 
         [BsonIgnoreIfNull]
