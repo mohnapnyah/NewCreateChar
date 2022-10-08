@@ -18,6 +18,7 @@ namespace CreateChar
         private int intelligence;
         private int experience = 0;
         private int level = 1;
+        private string perk; 
 
         [BsonIgnoreIfNull]
         public List<Item> Items { get; set; }
@@ -29,6 +30,7 @@ namespace CreateChar
         public int Intelligence { get => intelligence; set => intelligence = value; }
         public int Experience { get => experience; set => experience = value; }
         public int Level { get => level; set => level = value; }
+        public string Perk { get => perk; set => perk = value; }
 
         protected Unit(string name, int strength, int dexterity, int constitution, int intelligence, int level)
         {

@@ -96,6 +96,7 @@ namespace CreateCharWpf
                             (int)SliderConstitution.Value,
                             (int)SliderIntellingence.Value,
                             int.Parse(lvlBox.Text));
+                newUnit.Perk = perks.Text;
                 foreach (var i in Inventory.Children)
                 {
                     var j = i as CheckBox;
@@ -179,9 +180,11 @@ namespace CreateCharWpf
             SliderIntellingence.Value = i.Intelligence;
             SliderDexterity.Value = i.Dexterity;
             SliderConstitution.Value = i.Constitution;
+            //perks.Text = i.Perk;
             lvlBox.Text = i.Level.ToString();
             exp.Value = i.Experience;
             exp.Maximum = i.Level * 3000;
+            
 
             if (i.Items != null)
             {
@@ -263,6 +266,19 @@ namespace CreateCharWpf
                 i.Experience = 0;
             }
             MongoExample.ReplaceUnit($"{ChangeUnit.SelectedValue}", i);
+        }
+
+        private void lvlBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (int.Parse(lvlBox.Text) % 3 == 0)
+            {
+                int a = int.Parse(lvlBox.Text) / 3;
+                perks.Text = "";
+                for (int ia = 0; ia< a; ia++)
+                {
+                    perks.Text = perks.Text + "перк ";
+                }
+            }
         }
     }
 }

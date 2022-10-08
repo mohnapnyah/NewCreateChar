@@ -59,6 +59,7 @@
                 <TextBlock x:Name="TextDexterity" HorizontalAlignment="Left" Margin="286,41,0,0" Grid.Row="2" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
                 <TextBlock x:Name="TextIntellingence" HorizontalAlignment="Left" Margin="286,31,0,0" Grid.Row="3" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
                 <TextBlock x:Name="TextConstitution" HorizontalAlignment="Left" Margin="286,0,0,0" Grid.Row="4" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Center"/>
+                <TextBox x:Name="perks" HorizontalAlignment="Left" Height="20" Margin="10,0,0,0" Grid.Row="5" TextWrapping="Wrap" VerticalAlignment="Center" Width="301"/>
             </Grid>
             <Button Content="Save" HorizontalAlignment="Right" Margin="0,0,10,10" Click="Save_Click" VerticalAlignment="Bottom"/>
             <TextBlock x:Name="FinalStatsText" Grid.Column="1" HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="104" Width="304"/>
@@ -68,7 +69,7 @@
             </ScrollViewer>
             <ProgressBar x:Name="exp" Grid.Column="1" HorizontalAlignment="Center" Height="21" Margin="0,406,0,0" VerticalAlignment="Top" Width="224" Maximum="1000"/>
             <Button x:Name="expUp" Grid.Column="1" Content="+2000" HorizontalAlignment="Center" Margin="0,372,0,0" VerticalAlignment="Top" Click="expUp_Click"/>
-            <TextBox x:Name="lvlBox" Grid.Column="1" HorizontalAlignment="Left" Margin="59,374,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="45"/>
+            <TextBox x:Name="lvlBox" Grid.Column="1" HorizontalAlignment="Left" Margin="59,374,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="45" TextChanged="lvlBox_TextChanged"/>
             <Label x:Name="levelLabel" Grid.Column="1" Content="Level:" HorizontalAlignment="Left" Margin="16,370,0,0" VerticalAlignment="Top"/>
 
 
