@@ -32,6 +32,17 @@ namespace CreateCharWpf
         Field IntelligenceCharacteristic;
         int MarginTopItem = 10;
         List<Item> items;
+        Helmet baseMageHelmet = new Helmet("bomjeMageHelmet", 1, 1, 1, 20, 5, 0);
+        Helmet mediumMageHelmet = new Helmet("normMageHelmet", 1, 5, 5, 40, 10, 5 );
+        Helmet coolMageHelmet = new Helmet("krutoyMageHelmet", 1, 10, 10, 70, 20, 10);
+
+        Helmet baseWarHelmet = new Helmet("bomjeWarHelmet", 1, 1, 10, 0, 15, 5);
+        Helmet mediumWarHelmet = new Helmet("normWarHelmet", 1, 5, 20, 5, 40, 15);
+        Helmet coolWarHelmet = new Helmet("krutoyWarHelmet", 1, 10, 40, 10, 60, 20);
+
+        Helmet baseRogHelmet = new Helmet("bomjeRogHelmet", 1, 1, 1, 0, 5, 15);
+        Helmet mediumRogHelmet = new Helmet("normRogHelmet", 1, 5, 5, 1, 10, 40);
+        Helmet coolRogHelmet = new Helmet("krutoyWHelmet", 1, 5, 10, 10, 15, 45);
 
         public MainWindow()
         {
@@ -47,6 +58,7 @@ namespace CreateCharWpf
             TextInfoUpdate();
             ShowFinalStats();
             ChangeUnitComboBoxUpdate();
+
         }
 
         private void ChangeClass(string currentClass)

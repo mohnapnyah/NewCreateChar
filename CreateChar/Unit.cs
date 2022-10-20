@@ -18,7 +18,10 @@ namespace CreateChar
         private int intelligence;
         private int experience = 0;
         private int level = 1;
-        private string perk; 
+        private string perk;
+        Helmet helmet;
+        Chestplate chestplate;
+        Weapon weapon;
 
         [BsonIgnoreIfNull]
         public List<Item> Items { get; set; }

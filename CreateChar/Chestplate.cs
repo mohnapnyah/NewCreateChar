@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CreateChar
 {
-    internal class Chestplate : Item
+    public class Chestplate : Item
     {
         private int neededLvl;
         private int armor;

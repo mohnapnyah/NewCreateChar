@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CreateChar
 {
-    internal class Weapon : Item
+    public class Weapon : Item
     {
         int neededLvl;
         int damage;
