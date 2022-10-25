@@ -32,6 +32,8 @@ namespace CreateCharWpf
         Field IntelligenceCharacteristic;
         int MarginTopItem = 10;
         List<Item> items;
+        List<Item> equipment;
+
         Helmet baseMageHelmet = new Helmet("bomjeMageHelmet", 1, 1, 1, 20, 5, 0);
         Helmet mediumMageHelmet = new Helmet("normMageHelmet", 1, 5, 5, 40, 10, 5 );
         Helmet coolMageHelmet = new Helmet("krutoyMageHelmet", 1, 10, 10, 70, 20, 10);
@@ -43,11 +45,12 @@ namespace CreateCharWpf
         Helmet baseRogHelmet = new Helmet("bomjeRogHelmet", 1, 1, 1, 0, 5, 15);
         Helmet mediumRogHelmet = new Helmet("normRogHelmet", 1, 5, 5, 1, 10, 40);
         Helmet coolRogHelmet = new Helmet("krutoyWHelmet", 1, 5, 10, 10, 15, 45);
-
+        
         public MainWindow()
         {
             InitializeComponent();
             items = new List<Item>();
+            equipment = new List<Item>();
             ChangeClassComboBox.Items.Clear();
             foreach (var i in UnitMaker.UnitClassCode)
             {
@@ -58,6 +61,11 @@ namespace CreateCharWpf
             TextInfoUpdate();
             ShowFinalStats();
             ChangeUnitComboBoxUpdate();
+            equipment.Add(baseMageHelmet);
+            equipment.Add(mediumMageHelmet);
+            equipment.Add(coolMageHelmet);
+            equipment.Add(baseWarHelmet);
+           
 
         }
 
@@ -291,6 +299,12 @@ namespace CreateCharWpf
                     perks.Text = perks.Text + "перк ";
                 }
             }
+        }
+
+        private void Shop_Click(object sender, RoutedEventArgs e)
+        {
+            Inventory inventory = new Inventory(equipment);
+            inventory.ShowDialog();
         }
     }
 }

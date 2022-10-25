@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using CreateChar;
 
 namespace CreateCharWpf
 {
@@ -19,9 +20,13 @@ namespace CreateCharWpf
     /// </summary>
     public partial class Inventory : Window
     {
-        public Inventory()
+        public Inventory(List<Item> equipment)
         {
             InitializeComponent();
+            foreach(var a in equipment)
+            {
+                Shop.Items.Add(a);
+            }    
         }
     }
 }

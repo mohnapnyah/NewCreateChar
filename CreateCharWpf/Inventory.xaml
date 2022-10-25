@@ -5,14 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CreateCharWpf"
         mc:Ignorable="d"
-        Title="Inventory" Height="200" Width="400">
+        Title="Inventory" Height="300" Width="600">
     <Grid>
-        <TextBox x:Name="Helmet" HorizontalAlignment="Center" Margin="0,20,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="Chestplate" HorizontalAlignment="Center" Margin="0,74,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Height="18"/>
-        <TextBox x:Name="Weapon" HorizontalAlignment="Center" Margin="0,123,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="88,21,0,0" TextWrapping="Wrap" Text="Helmet" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="79,75,0,0" TextWrapping="Wrap" Text="Chestplate" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="91,124,0,0" TextWrapping="Wrap" Text="Weapon" VerticalAlignment="Top"/>
+        <TextBox x:Name="Helmet" HorizontalAlignment="Left" Margin="401,19,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="Chestplate" HorizontalAlignment="Left" Margin="401,66,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Height="18"/>
+        <TextBox x:Name="Weapon" HorizontalAlignment="Left" Margin="401,114,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="351,20,0,0" TextWrapping="Wrap" Text="Helmet" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="327,67,0,0" TextWrapping="Wrap" Text="Chestplate" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="339,115,0,0" TextWrapping="Wrap" Text="Weapon" VerticalAlignment="Top"/>
+        <ListView x:Name="Shop" Margin="10,20,288,84">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+
 
 
     </Grid>

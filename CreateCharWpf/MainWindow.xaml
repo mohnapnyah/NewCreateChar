@@ -71,6 +71,7 @@
             <Button x:Name="expUp" Grid.Column="1" Content="+2000" HorizontalAlignment="Center" Margin="0,372,0,0" VerticalAlignment="Top" Click="expUp_Click"/>
             <TextBox x:Name="lvlBox" Grid.Column="1" HorizontalAlignment="Left" Margin="59,374,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="45" TextChanged="lvlBox_TextChanged"/>
             <Label x:Name="levelLabel" Grid.Column="1" Content="Level:" HorizontalAlignment="Left" Margin="16,370,0,0" VerticalAlignment="Top"/>
+            <Button x:Name="Shop" Grid.Column="1" Content="Shop" HorizontalAlignment="Left" Margin="36,434,0,0" VerticalAlignment="Top" Click="Shop_Click"/>
 
 
 
