@@ -45,13 +45,26 @@ namespace CreateCharWpf
         Helmet baseRogHelmet = new Helmet("bomjeRogHelmet", 1, 1, 1, 0, 5, 15);
         Helmet mediumRogHelmet = new Helmet("normRogHelmet", 1, 5, 5, 1, 10, 40);
         Helmet coolRogHelmet = new Helmet("krutoyWHelmet", 1, 5, 10, 10, 15, 45);
-        
+
+        Chestplate baseMageChestplate = new Chestplate("bomjeMageChestplate", 1, 1, 10, 25, 5, 0);
+        Chestplate mediumMageChestplate = new Chestplate("normMageChestplate", 1, 3, 25, 45, 10, 5);
+        Chestplate coolMageChestplate = new Chestplate("krutoyMageChestplate", 1, 8, 35, 75, 20, 10);
+
+        Chestplate baseWarChestplate = new Chestplate("bomjeWarChestplate", 1, 1, 20, 5, 20, 10);
+        Chestplate mediumWarChestplate = new Chestplate("normWarChestplate", 1, 3, 40, 10, 50, 25);
+        Chestplate coolWarChestplate = new Chestplate("krutoyWarChestplate", 1, 8, 80, 15, 70, 30);
+
+        Chestplate baseRogChestplate = new Chestplate("bomjeRogChestplate", 1, 1, 5, 0, 20, 10);
+        Chestplate mediumRogChestplate = new Chestplate("normRogChestplate", 1, 3, 15, 15, 25, 25);
+        Chestplate coolRogChestplate = new Chestplate("krutoyWarChestplate", 1, 8, 30, 20, 30, 60);
+
         public MainWindow()
         {
             InitializeComponent();
             items = new List<Item>();
             equipment = new List<Item>();
             ChangeClassComboBox.Items.Clear();
+            
             foreach (var i in UnitMaker.UnitClassCode)
             {
                 ChangeClassComboBox.Items.Add(i.Key);
@@ -303,7 +316,8 @@ namespace CreateCharWpf
 
         private void Shop_Click(object sender, RoutedEventArgs e)
         {
-            Inventory inventory = new Inventory(equipment);
+            var i = MongoExample.Find($"{ChangeUnit.SelectedValue}");
+            Inventory inventory = new Inventory(equipment,(i as Unit));
             inventory.ShowDialog();
         }
     }

@@ -13,10 +13,11 @@
         <TextBlock HorizontalAlignment="Left" Margin="351,20,0,0" TextWrapping="Wrap" Text="Helmet" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="327,67,0,0" TextWrapping="Wrap" Text="Chestplate" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="339,115,0,0" TextWrapping="Wrap" Text="Weapon" VerticalAlignment="Top"/>
-        <ListView x:Name="Shop" Margin="10,20,288,84">
+        <ListView x:Name="Shop" Margin="10,20,288,84" MouseDoubleClick="Shop_MouseDoubleClick" >
             <ListView.View>
                 <GridView>
-                    <GridViewColumn/>
+                    <GridViewColumn x:Name="Name" DisplayMemberBinding="{Binding ItemName}"/>
+                    
                 </GridView>
             </ListView.View>
         </ListView>

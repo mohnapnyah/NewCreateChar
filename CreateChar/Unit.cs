@@ -34,6 +34,9 @@ namespace CreateChar
         public int Experience { get => experience; set => experience = value; }
         public int Level { get => level; set => level = value; }
         public string Perk { get => perk; set => perk = value; }
+        public Helmet Helmet { get => helmet; set => helmet = value; }
+        public Chestplate Chestplate { get => chestplate; set => chestplate = value; }
+        public Weapon Weapon { get => weapon; set => weapon = value; }
 
         protected Unit(string name, int strength, int dexterity, int constitution, int intelligence, int level)
         {
