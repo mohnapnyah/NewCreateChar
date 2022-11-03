@@ -21,55 +21,63 @@ namespace CreateCharWpf
     public partial class Inventory : Window
     {
         Unit unit;
-        public Inventory(List<Item> equipment, Unit i)
+        string selected;
+        public Inventory(List<Item> equipment, Unit i, string selected)
         {
             InitializeComponent();
             foreach(var a in equipment)
             {
                 Shop.Items.Add(a);
             }
-            unit = i;
+            Unit = i;
+            selected = selected;
         }
+
+        public Unit Unit { get => unit; set => unit = value; }
 
         private void Shop_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             Item item = (sender as ListView).SelectedItem as Item;
+            unit = Unit;
             if (item is Helmet)
             {
-                var i = item as Helmet;
-                if (unit.Strength >= i.RequairedStr &&
-                    unit.Intelligence >= i.RequairedInt &&
-                    unit.Dexterity >= i.RequairedDex &&
-                    unit.Level >= i.NeededLvl)
+                var a = item as Helmet;
+                if (Unit.Strength >= a.RequairedStr &&
+                    Unit.Intelligence >= a.RequairedInt &&
+                    Unit.Dexterity >= a.RequairedDex &&
+                    Unit.Level >= a.NeededLvl)
             {
-                    unit.Helmet = i;
-                    Helmet.Text = i.ItemName;
-            }
+                    Unit.Helmet = a;
+                    Helmet.Text = a.ItemName;
+                    MongoExample.ReplaceUnit($"{selected}", (Unit)unit);
+                }
             else { MessageBox.Show("Недостаточно статиков на этот шлем"); }
             }
             if(item is Chestplate)
             {
-                var i = item as Chestplate;
-                if (unit.Strength >= i.RequairedStr &&
-                    unit.Intelligence >= i.RequairedInt &&
-                    unit.Dexterity >= i.RequairedDex &&
-                    unit.Level >= i.NeededLvl)
+                var a = item as Chestplate;
+                if (Unit.Strength >= a.RequairedStr &&
+                    Unit.Intelligence >= a.RequairedInt &&
+                    Unit.Dexterity >= a.RequairedDex &&
+                    Unit.Level >= a.NeededLvl)
                 {
-                    unit.Chestplate = i;
-                    Chestplate.Text = i.ItemName;
+                    Unit.Chestplate = a;
+                    Chestplate.Text = a.ItemName;
+                    MongoExample.ReplaceUnit($"{selected}", (Unit)unit);
                 }
                 else { MessageBox.Show("Недостаточно статиков на этот честплейт"); }
             }
             if (item is Weapon)
             {
-                var i = item as Weapon;
-                if (unit.Strength >= i.RequairedStr &&
-                    unit.Intelligence >= i.RequairedInt &&
-                    unit.Dexterity >= i.RequairedDex &&
-                    unit.Level >= i.NeededLvl)
+                var a = item as Weapon;
+                if (Unit.Strength >= a.RequairedStr &&
+                    Unit.Intelligence >= a.RequairedInt &&
+                    Unit.Dexterity >= a.RequairedDex &&
+                    Unit.Level >= a.NeededLvl)
                 {
-                    unit.Weapon = i;
-                    Weapon.Text = i.ItemName;
+                    Unit.Weapon = a;
+                    Weapon.Text = a.ItemName;
+                    MongoExample.ReplaceUnit($"{selected}", (Unit)unit);
                 }
                 else { MessageBox.Show("Недостаточно статиков на этот виапон"); }
             }

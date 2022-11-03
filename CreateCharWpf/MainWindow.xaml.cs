@@ -30,7 +30,7 @@ namespace CreateCharWpf
         Field DexterityCharacteristic;
         Field ConstitutionCharacteristic;
         Field IntelligenceCharacteristic;
-        int MarginTopItem = 10;
+        int MarginTopItem;
         List<Item> items;
         List<Item> equipment;
 
@@ -58,6 +58,18 @@ namespace CreateCharWpf
         Chestplate mediumRogChestplate = new Chestplate("normRogChestplate", 1, 3, 15, 15, 25, 25);
         Chestplate coolRogChestplate = new Chestplate("krutoyWarChestplate", 1, 8, 30, 20, 30, 60);
 
+        Weapon littleWand = new Weapon("littleWand", 1, 1, 5, 25, 5, 0);
+        Weapon mediumWand = new Weapon("normMmediumWandageChestplate", 1, 10, 20, 45, 10, 5);
+        Weapon BFG = new Weapon("BFG", 1, 20, 100, 75, 20, 10);
+
+        Weapon baseDubina = new Weapon("baseDubina", 1, 1, 15, 5, 20, 10);
+        Weapon betterDubina = new Weapon("betterDubina", 1, 10, 40, 10, 50, 25);
+        Weapon greatDubinaOfDubina = new Weapon("greatDubinaOfDubina", 1, 15, 80, 15, 70, 30);
+
+        Weapon tinyZatochka = new Weapon("tinyZatochka", 1, 1, 5, 0, 20, 10);
+        Weapon meduimZatochka = new Weapon("meduimZatochka", 1, 10, 50, 15, 25, 25);
+        Weapon bestZatochka = new Weapon("bestZatochka", 1, 15, 30, 75, 30, 60);
+
         public MainWindow()
         {
             InitializeComponent();
@@ -77,9 +89,42 @@ namespace CreateCharWpf
             equipment.Add(baseMageHelmet);
             equipment.Add(mediumMageHelmet);
             equipment.Add(coolMageHelmet);
-            equipment.Add(baseWarHelmet);
-           
 
+            equipment.Add(baseWarHelmet);
+            equipment.Add(mediumWarHelmet);
+            equipment.Add(coolWarHelmet);
+
+            equipment.Add(baseRogHelmet);
+            equipment.Add(mediumRogHelmet);
+            equipment.Add(coolRogHelmet);
+
+            equipment.Add(baseRogHelmet);
+            equipment.Add(mediumRogHelmet);
+            equipment.Add(coolRogHelmet);
+
+            equipment.Add(baseMageChestplate);
+            equipment.Add(mediumMageChestplate);
+            equipment.Add(coolMageChestplate);
+
+            equipment.Add(baseWarChestplate);
+            equipment.Add(mediumWarChestplate);
+            equipment.Add(coolWarChestplate);
+
+            equipment.Add(baseRogChestplate);
+            equipment.Add(mediumRogChestplate);
+            equipment.Add(coolRogChestplate);
+
+            equipment.Add(littleWand);
+            equipment.Add(mediumWand);
+            equipment.Add(BFG);
+
+            equipment.Add(baseDubina);
+            equipment.Add(betterDubina);
+            equipment.Add(greatDubinaOfDubina);
+
+            equipment.Add(tinyZatochka);
+            equipment.Add(meduimZatochka);
+            equipment.Add(bestZatochka);
         }
 
         private void ChangeClass(string currentClass)
@@ -316,8 +361,9 @@ namespace CreateCharWpf
 
         private void Shop_Click(object sender, RoutedEventArgs e)
         {
+            string selected = (string)ChangeUnit.SelectedValue;
             var i = MongoExample.Find($"{ChangeUnit.SelectedValue}");
-            Inventory inventory = new Inventory(equipment,(i as Unit));
+            Inventory inventory = new Inventory(equipment,(i as Unit),selected);
             inventory.ShowDialog();
         }
     }
